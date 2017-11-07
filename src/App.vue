@@ -22,8 +22,10 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <main>
+    <main class="gray">
+     <router-view>
 
+    </router-view>
     <v-btn fixed dark fab bottom right color="pink">
         <v-icon>email</v-icon>
     </v-btn>
@@ -43,6 +45,12 @@ export default {
 };
 </script>
 
-<style lang="stylus">
-
+<style>
+.gray{
+  background-color: #E0E0E0
+}
+.align{
+  margin: auto;
+  display: block
+}
 </style>

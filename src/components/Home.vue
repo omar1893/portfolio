@@ -1,15 +1,27 @@
 <template>
-  <div class="hello">
-    
-  </div>
+    <v-layout row>
+    <v-flex xs12 sm6 align-center offset-sm3>
+      <v-card class="py-3 text-xs-center">
+        <v-avatar size="200px" class="align">
+          <img src="https://imageserver-bisnow1.netdna-ssl.com/T6qaNvKgcjF-AVyYYbfTA85qlY4=/710x484/publisher/56d949076944e_RE_Good.jpeg" alt="John">
+        </v-avatar>
+            <h3 class="d-block primary-title mb-0">Omar José López Gallardo</h3>
+            <p class="title">Frontend Developer and Javascript Enthusiast</p>
+        <v-card-actions>
+          <v-btn flat color="orange">Share</v-btn>
+          <v-btn flat color="orange">Explore</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      
     }
   }
 }
@@ -17,21 +29,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+
+.primary-title{
+  font-size: 36px
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
