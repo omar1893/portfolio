@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar>
+    <v-toolbar dark class="primary">
       <v-toolbar-title>Omar Lopez</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -38,20 +38,11 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: true,
-      fixed: false,
-      items: [
-        {
-          icon: "bubble_chart",
-          title: "Inspire"
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: "Vuetify.js"
     };
   }
 };
 </script>
+
+<style lang="stylus">
+
+</style>
