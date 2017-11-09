@@ -5,7 +5,7 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import './stylus/main.styl'
-
+import '../node_modules/mdi/css/materialdesignicons.min.css'
 import App from './App'
 import router from './router'
 
