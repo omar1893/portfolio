@@ -56,4 +56,7 @@ export default {
   margin: auto;
   display: block
 }
+.basic-list{
+  margin: auto;
+}
 </style>
