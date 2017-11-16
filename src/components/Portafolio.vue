@@ -85,6 +85,11 @@
           .catch(e => {
             this.errors.push(e)
           })
+      },
+      getOthers(){
+        this.posts.filter((post) => {
+          return post.tech.toLowerCase().match('angular')
+        })
       }
     },
     computed: {
@@ -101,8 +106,7 @@
       tab: function() {
         console.log(this.tab)
         this.tab == 'all' ? this.search = '' : this.search = this.tab
-        // this.search = this.tab
-      }
+      },
     }
   }
 </script>
