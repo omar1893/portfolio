@@ -1,6 +1,6 @@
 <template>
   <v-layout row align-center class="pt-4">
-    <v-flex xs12 sm9 class="basic-list">
+    <v-flex xs12 sm10 class="basic-list">
       <v-card class="text-xs-center card-width portfolio-card">
   
         <v-layout>
@@ -12,25 +12,41 @@
           </v-flex>
         </v-layout>
   
-        <v-layout row wrap>
-          <v-flex xs12 sm6 md4 lg3 v-for="post in filtered" :key="post.title" class="pa-3">
-            <v-card>
-              <v-container class="fab-container">
-                <v-card-media src="https://imageserver-bisnow1.netdna-ssl.com/T6qaNvKgcjF-AVyYYbfTA85qlY4=/710x484/publisher/56d949076944e_RE_Good.jpeg" height="200px">
-                </v-card-media>
-                <v-btn absolute dark fab small bottom right color="pink" class="fab-size">
-                  <v-icon>play_arrow</v-icon>
-                </v-btn>
-              </v-container>
-              <v-card-title class="pa-2" primary-title>
-                <div class="text-xs-center basic-list">
-                  <h3 class="app-title mb-0">{{post.title}}</h3>
-                  <span><v-icon class="mr-2" left>build</v-icon>{{post.tech}}</span>
-                </div>
-              </v-card-title>
-            </v-card>
-          </v-flex>
-        </v-layout>
+        <v-tabs fixed icons centered v-model="tab">
+          <v-tabs-bar class="transparent">
+            <v-tabs-slider></v-tabs-slider>
+            <v-tabs-item href="#all">
+              <v-icon>mdi-check-all</v-icon>
+              All
+            </v-tabs-item>
+            <v-tabs-item href="#angular">
+              <v-icon>mdi-angular</v-icon>
+              Angular
+            </v-tabs-item>
+            <v-tabs-item href="#vue">
+              <img src="../../src/assets/vuejs.png" alt="">
+              Vue
+            </v-tabs-item>
+            <v-tabs-item href="#react">
+              <v-icon>mdi-react</v-icon>
+              React
+            </v-tabs-item>
+            <v-tabs-item href="#other">
+              <v-icon>devices_other</v-icon>
+              Others
+            </v-tabs-item>
+          </v-tabs-bar>
+          <v-tabs-items>
+            <v-tabs-content v-for="i in tabs" :key="i" :id="i">
+              <v-layout row wrap>
+                <v-flex xs12 sm6 md4 lg3 v-for="post in filtered" :key="post.title" class="pa-3">
+                  <card-portfolio v-bind:port="post"></card-portfolio>
+                </v-flex>
+              </v-layout>
+            </v-tabs-content>
+          </v-tabs-items>
+        </v-tabs>
+  
   
       </v-card>
     </v-flex>
@@ -39,17 +55,26 @@
 
 <script>
   import axios from 'axios'
-  
+  import cardPortfolio from './card-portfolio'
   export default {
+    components: {
+      cardPortfolio
+    },
     data() {
       return {
         search: '',
-        posts: []
+        posts: [],
+        tab: '',
+        tabs: ['all', 'angular', 'vue', 'react', 'other']
+        // all: [],
+        // angular:[],
+        // vue:[],
+        // react:[]
+        // other:[]
       }
     },
     methods: {
       getPortfolio() {
-        console.log("Component Created")
         axios.get(`https://portfolio-37f8f.firebaseio.com/portfolio.json`)
           .then(response => {
             for (let i in response.data) {
@@ -71,6 +96,13 @@
     },
     created() {
       this.getPortfolio()
+    },
+    watch: {
+      tab: function() {
+        console.log(this.tab)
+        this.tab == 'all' ? this.search = '' : this.search = this.tab
+        // this.search = this.tab
+      }
     }
   }
 </script>
@@ -85,6 +117,11 @@
     padding: 0;
   }
   
+  .fab-size .btn__content:hover {
+    transform: rotate(720deg);
+    transition: .7s ease-in-out;
+  }
+  
   .fab-size {
     height: 35px!important;
     width: 35px!important
@@ -92,5 +129,9 @@
   
   .app-title {
     font-size: 18px!important
+  }
+  
+  .tabs__item--active {
+    color: inherit!important;
   }
 </style>
