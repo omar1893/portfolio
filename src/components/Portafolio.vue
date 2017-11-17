@@ -1,7 +1,7 @@
 <template>
   <v-layout row align-center class="pt-4">
     <v-flex xs12 sm10 class="basic-list">
-      <v-card class="text-xs-center card-width portfolio-card">
+      <v-card class="text-xs-center card-width portfolio-card pt-4">
   
         <v-layout>
           <v-flex xs8 md6 class="basic-list">
@@ -24,8 +24,7 @@
               Angular
             </v-tabs-item>
             <v-tabs-item href="#vue">
-              <img src="../../src/assets/vuejs.png" alt="">
-              Vue
+              <img src="../../src/assets/vuejs.png" alt=""> Vue
             </v-tabs-item>
             <v-tabs-item href="#react">
               <v-icon>mdi-react</v-icon>
@@ -38,8 +37,12 @@
           </v-tabs-bar>
           <v-tabs-items>
             <v-tabs-content v-for="i in tabs" :key="i" :id="i">
+  
               <v-layout row wrap>
-                <v-flex xs12 sm6 md4 lg3 v-for="post in filtered" :key="post.title" class="pa-3">
+                <div class="basic-list my-4" v-if="posts.length == 0">
+                  <v-progress-circular indeterminate v-bind:size="70" v-bind:width="7" color="purple"></v-progress-circular>
+                </div>
+                <v-flex xs12 sm6 md4 lg3 xl2 v-for="post in filtered" :key="post.title" class="pa-3">
                   <card-portfolio v-bind:port="post"></card-portfolio>
                 </v-flex>
               </v-layout>
@@ -66,11 +69,6 @@
         posts: [],
         tab: '',
         tabs: ['all', 'angular', 'vue', 'react', 'other']
-        // all: [],
-        // angular:[],
-        // vue:[],
-        // react:[]
-        // other:[]
       }
     },
     methods: {
@@ -86,7 +84,7 @@
             this.errors.push(e)
           })
       },
-      getOthers(){
+      getOthers() {
         this.posts.filter((post) => {
           return post.tech.toLowerCase().match('angular')
         })
@@ -123,7 +121,7 @@
   
   .fab-size .btn__content:hover {
     transform: rotate(720deg);
-    transition: .7s ease-in-out;
+    transition: .8s cubic-bezier(.22,-1.01,.54,1.74);
   }
   
   .fab-size {

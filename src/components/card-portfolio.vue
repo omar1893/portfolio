@@ -9,7 +9,7 @@
                 </v-btn>
             </v-container>
             <v-card-title class="pa-2" primary-title>
-                <div class="text-xs-center basic-list">
+                <div class="basic-list">
                     <h3 class="app-title mb-0">{{port.title}}</h3>
                     <span><v-icon class="mr-2" left>build</v-icon>{{port.tech}}</span>
                 </div>
