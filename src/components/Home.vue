@@ -1,7 +1,8 @@
 <template>
   <v-layout row align-center>
     <v-flex xs12 sm7 class="basic-list">
-      <v-card class="text-xs-center card-width">
+  
+      <v-card class="text-xs-center card-profile card-width">
   
         <v-layout row align-center>
           <v-flex xs12 sm5 class="px-4">
@@ -43,7 +44,14 @@
           </v-flex>
         </v-card-actions>
       </v-card>
+  
+
     </v-flex>
+      <div class="waves">
+        <div class="wave circulo a"></div>
+        <div class="wave circulo b"></div>
+        <div class="wave circulo c"></div>
+      </div>
   </v-layout>
 </template>
 
@@ -73,10 +81,12 @@
   .key {
     font-weight: bold
   }
-
-  .headline{
+  
+  .headline {
     font-size: 20px!important
   }
-
   
+  .card-profile {
+    z-index: 1;
+  }
 </style>
