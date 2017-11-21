@@ -1,5 +1,5 @@
 <template>
-  <v-layout row align-center>
+  <v-layout row align-center class="waves-container">
     <v-flex xs12 sm7 class="basic-list">
   
       <v-card class="text-xs-center card-profile card-width">
@@ -88,5 +88,10 @@
   
   .card-profile {
     z-index: 1;
+  }
+
+  .waves-container{
+    position: relative;
+    overflow: hidden;
   }
 </style>

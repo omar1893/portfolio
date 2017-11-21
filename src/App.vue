@@ -67,7 +67,7 @@
             right: 0;
             height: 200px;
             bottom: 0;*/
-    bottom: -135px;
+    bottom: -100px;
     height: 527px;
     width: 100%;
     overflow: hidden;
