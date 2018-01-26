@@ -16,8 +16,10 @@
                     </v-layout>
                   <h4 class="my-4">Courses:</h4>
                     <v-layout row wrap>
-                        <v-flex xs12 md6 v-for="course in courses" v-if="course.type == 'Course'" :key="course.title">
+                        <v-flex xs6 md3 v-for="course in courses" v-if="course.type == 'Course'" :key="course.title">
                             <v-card target="_blank">
+                                <v-card-media :src="course.image" class="logo">
+                </v-card-media>
                                 <v-card-text class="px-4 text-xs-left">
                                     <h5 class="mb-0">{{course.title}}</h5>
                                     <p class="mb-1"><strong>Institution: </strong> {{course.institution}}</p>
@@ -53,5 +55,10 @@ export default {
 </script>
 
 <style>
+.logo{
+    width: 150px;
+    height: 150px !important;
+    margin: auto;
+}
 
 </style>
